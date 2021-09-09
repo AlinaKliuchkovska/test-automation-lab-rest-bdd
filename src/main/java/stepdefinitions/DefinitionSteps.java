@@ -4,14 +4,17 @@ import asserts.Asserts;
 import endpoints.AuthorEndpoints;
 import endpoints.BookEndpoints;
 import endpoints.GenreEndpoints;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.Author;
 import models.Book;
 import models.Genre;
+import org.junit.BeforeClass;
 import utils.RandomGenerators;
 
 public class DefinitionSteps {
@@ -24,6 +27,11 @@ public class DefinitionSteps {
     private Author author;
     private Book book;
     private Genre genre;
+
+    @Before
+    public void setUrl(){
+        RestAssured.baseURI = "http://localhost:9090";
+    }
 
     @When("User creates new author")
     public void createNewAuthor() {

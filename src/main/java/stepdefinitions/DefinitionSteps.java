@@ -14,7 +14,6 @@ import io.restassured.response.Response;
 import models.Author;
 import models.Book;
 import models.Genre;
-import org.junit.BeforeClass;
 import utils.RandomGenerators;
 
 public class DefinitionSteps {
@@ -37,6 +36,9 @@ public class DefinitionSteps {
     public void createNewAuthor() {
         author = new Author(RandomGenerators.randomIdGenerator(), RandomGenerators.randomStringGenerator());
         response = authorEndpoints.createNewAuthor(author);
+        System.out.println("Hello");
+        System.out.println(System.getProperty("threadCount"));
+        System.out.println(System.getenv("threadCount"));
     }
 
     @When("User gets author by author id")

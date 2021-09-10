@@ -29,16 +29,13 @@ public class DefinitionSteps {
 
     @Before
     public void setUrl(){
-        RestAssured.baseURI = "http://localhost:9090";
+        RestAssured.baseURI = System.getenv("baseURI");
     }
 
     @When("User creates new author")
     public void createNewAuthor() {
         author = new Author(RandomGenerators.randomIdGenerator(), RandomGenerators.randomStringGenerator());
         response = authorEndpoints.createNewAuthor(author);
-        System.out.println("Hello");
-        System.out.println(System.getProperty("threadCount"));
-        System.out.println(System.getenv("threadCount"));
     }
 
     @When("User gets author by author id")

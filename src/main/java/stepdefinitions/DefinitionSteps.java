@@ -1,14 +1,14 @@
 package stepdefinitions;
 
 import asserts.Asserts;
+import cucumber.api.java.Before;
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import endpoints.AuthorEndpoints;
 import endpoints.BookEndpoints;
 import endpoints.GenreEndpoints;
-import io.cucumber.java.Before;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.Author;
@@ -29,7 +29,7 @@ public class DefinitionSteps {
 
     @Before
     public void setUrl(){
-        RestAssured.baseURI = System.getenv("baseURI");
+        RestAssured.baseURI = "http://localhost:9090/";
     }
 
     @When("User creates new author")

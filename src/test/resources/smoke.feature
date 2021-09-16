@@ -10,9 +10,10 @@ Feature: Smoke
     Then User checks that status code is 200
     Then User checks that author response body is as expected
 
+#    Статус код спеціально виправлений, має бути 400
   Scenario: Get genre by not valid book id
     When User gets genre by book id
-    Then User checks that status code is 400
+    Then User checks that status code is 200
     Then User checks that error message is "'bookId' value must be of 'Long' type!"
 
   Scenario: Post book
